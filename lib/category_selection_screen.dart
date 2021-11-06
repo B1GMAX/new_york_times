@@ -12,41 +12,44 @@ class CategorySelectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ListView.builder(itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ArticleSelectionScreen(
-                    typeOfArticle: categories[index],
-                  ),
-                ),
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(9),
-              child: Container(
-                height: 70,
-                width: 150,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: const Offset(0, 3), // changes position of shadow
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ArticleSelectionScreen(
+                      categoryOfArticle: kCategories[index],
                     ),
-                  ],
+                  ),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(9),
+                child: Container(
+                  height: 70,
+                  width: 150,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Center(child: Text(kCategories[index])),
                 ),
-                child:  Center(child: Text('${categories[index]}')),
               ),
-            ),
-          );
-        },
-        itemCount: categories.length,),
+            );
+          },
+          itemCount: kCategories.length,
+        ),
       ),
     );
   }

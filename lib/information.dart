@@ -1,7 +1,6 @@
 class Information {
   final String abstract;
   final String text;
-
   final String date;
 
   Information({
