@@ -20,7 +20,9 @@ class ArticleSelectionScreen extends StatelessWidget {
             ArticleBloc()..loadSportsData(categoryOfArticle, context),
         builder: (context, child) {
           return Scaffold(
-            appBar: AppBar(),
+            appBar: AppBar(
+              title: Text(categoryOfArticle),
+            ),
             body: StreamBuilder<List<Information>>(
                 stream: context.read<ArticleBloc>().articleStream,
                 builder: (context, snapshot) {
@@ -36,6 +38,7 @@ class ArticleSelectionScreen extends StatelessWidget {
                                     MaterialPageRoute(
                                       builder: (context) => ShowArticleScreen(
                                         articleText: snapshot.data![index].text,
+                                        headline: snapshot.data![index].headline,
                                       ),
                                     ),
                                   );
@@ -52,7 +55,7 @@ class ArticleSelectionScreen extends StatelessWidget {
                                     padding: const EdgeInsets.all(8),
                                     child: Column(
                                       children: [
-                                        Text(snapshot.data![index].abstract),
+                                        Text(snapshot.data![index].headline),
                                         const SizedBox(
                                           height: 5,
                                         ),

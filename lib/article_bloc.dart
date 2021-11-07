@@ -34,13 +34,14 @@ class ArticleBloc {
       final List<dynamic> docs = otvet['docs'];
       for (int i = 0; i < docs.length; i++) {
         final Map<String, dynamic> map = docs[i];
-        final String abstract = map['abstract'];
+        final Map<String, dynamic> headline = map['headline'];
+        final String mainHeadline = headline['main'];
         final String webUrl = map['web_url'];
         final String date = map['pub_date'];
 
         articleInformation.add(Information(
-          date: date.replaceRange(10, 24, ''),
-          abstract: abstract,
+          date: date.substring(0,10),
+          headline: mainHeadline,
           text: webUrl,
         ));
       }

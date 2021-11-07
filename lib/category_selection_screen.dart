@@ -29,7 +29,7 @@ class CategorySelectionScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(9),
                 child: Container(
                   height: 70,
-                  width: 150,
+                  width: 100,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
